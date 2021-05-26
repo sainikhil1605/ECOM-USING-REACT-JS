@@ -3,13 +3,9 @@ import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-const Mylink = styled(Link)`
-	color: black;
-	text-decoration: none;
-	:hover {
-		color: gray;
-	}
-`;
+import { Mylink, OutDiv, PriceDiv, ProdDiv, TitleDiv } from "./HomeElements";
+import HomeSkeleton from "./HomeSkeleton";
+
 function Home() {
 	const [store, setStore] = useState([]);
 	useEffect(() => {
@@ -19,20 +15,15 @@ function Home() {
 		});
 	}, []);
 	return (
-		<SkeletonTheme color="#202020" highlightColor="#444">
+		<SkeletonTheme
+			color="rgb(230, 231, 232)"
+			highlightColor="rgb(230, 231, 232)"
+		>
 			{store.length !== 0 ? (
-				<div style={{ display: "flex", flexWrap: "wrap" }}>
+				<OutDiv>
 					{store.map((product) => {
 						return (
-							<div
-								style={{
-									flex: "1",
-									boxShadow:
-										"rgba(0, 0, 0, 0.25) 0px 4px 8px",
-									margin: "30px 30px",
-									backgroundColor: "white",
-								}}
-							>
+							<ProdDiv>
 								<Mylink to={`/product/${product["id"]}`}>
 									<img
 										width="200px"
@@ -40,17 +31,15 @@ function Home() {
 										src={product["image"]}
 										alt="product"
 									/>
-									<div>{product["title"]}</div>
-									<div style={{ fontSize: "25px" }}>
-										${product["price"]}
-									</div>
+									<TitleDiv>{product["title"]}</TitleDiv>
+									<PriceDiv>${product["price"]}</PriceDiv>
 								</Mylink>
-							</div>
+							</ProdDiv>
 						);
 					})}
-				</div>
+				</OutDiv>
 			) : (
-				<Skeleton height={10} />
+				<HomeSkeleton />
 			)}
 		</SkeletonTheme>
 	);

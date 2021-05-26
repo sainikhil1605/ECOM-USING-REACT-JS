@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import SkeletonImg from "./Skeleton";
 import { ImgDiv, Outdiv, ProdImg, TextDiv } from "./ProductElements";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { SkeletonTheme } from "react-loading-skeleton";
 function ProductDescription(props) {
 	const [store, setStore] = useState([]);
 	let { id } = useParams();
@@ -14,7 +14,10 @@ function ProductDescription(props) {
 		});
 	}, []);
 	return (
-		<SkeletonTheme color="#202020" highlightColor="#444">
+		<SkeletonTheme
+			color="rgb(230, 231, 232)"
+			highlightColor="rgb(230, 231, 232)"
+		>
 			{store.length !== 0 ? (
 				<Outdiv>
 					<ImgDiv>
@@ -27,7 +30,7 @@ function ProductDescription(props) {
 					</TextDiv>
 				</Outdiv>
 			) : (
-				<Skeleton height={10} />
+				<SkeletonImg />
 			)}
 		</SkeletonTheme>
 	);
