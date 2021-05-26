@@ -8,12 +8,14 @@ import HomeSkeleton from "./HomeSkeleton";
 
 function Home() {
 	const [store, setStore] = useState([]);
+	const skeleton = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	useEffect(() => {
 		axios.get("https://fakestoreapi.com/products").then((resp) => {
 			console.log(resp);
 			setStore(resp.data);
 		});
 	}, []);
+
 	return (
 		<SkeletonTheme
 			color="rgb(230, 231, 232)"
@@ -39,7 +41,11 @@ function Home() {
 					})}
 				</OutDiv>
 			) : (
-				<HomeSkeleton />
+				<OutDiv>
+					{skeleton.map((k) => {
+						return <HomeSkeleton />;
+					})}
+				</OutDiv>
 			)}
 		</SkeletonTheme>
 	);

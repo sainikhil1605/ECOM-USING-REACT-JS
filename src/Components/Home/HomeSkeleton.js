@@ -5,19 +5,17 @@ import { Mylink, PriceDiv, ProdDiv, TitleDiv } from "./HomeElements";
 
 function HomeSkeleton() {
 	return (
-		<Outdiv>
-			<ProdDiv>
-				<Mylink>
-					<Skeleton />
-				</Mylink>
-				<TitleDiv>
-					<Skeleton />
-				</TitleDiv>
-				<PriceDiv>
-					<Skeleton />
-				</PriceDiv>
-			</ProdDiv>
-		</Outdiv>
+		<ProdDiv>
+			<Mylink>
+				<Skeleton width="200px" height="200px" />
+			</Mylink>
+			<TitleDiv>
+				<Skeleton width="200px" />
+			</TitleDiv>
+			<PriceDiv>
+				<Skeleton width="200px" />
+			</PriceDiv>
+		</ProdDiv>
 	);
 }
 
