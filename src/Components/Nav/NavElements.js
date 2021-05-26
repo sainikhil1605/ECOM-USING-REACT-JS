@@ -5,6 +5,10 @@ export const NavBar = styled.nav`
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px;
 	height: 110px;
 	position: relative;
+	background-color: white;
+	@media screen and (max-width: 760px) {
+		padding: 0px 0px;
+	}
 `;
 export const NavLogo = styled.div`
 	flex: 1;
