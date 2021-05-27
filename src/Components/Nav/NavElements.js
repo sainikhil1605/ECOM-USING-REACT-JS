@@ -27,4 +27,5 @@ export const NavImg = styled.img`
 export const NavInnerItem = styled.div`
 	position: absolute;
 	top: 40%;
+	cursor: pointer;
 `;

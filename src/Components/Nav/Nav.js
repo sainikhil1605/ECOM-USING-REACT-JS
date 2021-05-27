@@ -2,7 +2,16 @@ import React from "react";
 import { NavBar, NavImg, NavInnerItem, NavItem, NavLogo } from "./NavElements";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { Modal } from "../Home/HomeElements";
+
 function Nav() {
+	function myfunc() {
+		if (document.getElementById("modal").style.display === "block") {
+			document.getElementById("modal").style.display = "none";
+		} else {
+			document.getElementById("modal").style.display = "block";
+		}
+	}
 	return (
 		<div>
 			<NavBar>
@@ -17,7 +26,7 @@ function Nav() {
 					</Link>
 				</NavLogo>
 				<NavItem>
-					<NavInnerItem>Login</NavInnerItem>
+					<NavInnerItem onClick={() => myfunc()}>Login</NavInnerItem>
 				</NavItem>
 				<NavItem>
 					<NavInnerItem>Cart</NavInnerItem>
